@@ -21,12 +21,17 @@
 		"GitHub.copilot-chat"
 	],
 	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+		// Binds required for Iceoryx
+		"source=/tmp,target=/tmp,type=bind",
+		"source=/dev,target=/dev,type=bind"
 	],
-	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && echo \"source ${containerWorkspaceFolder}/bashrc\" >> ~/.bashrc"
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && echo \"source ${containerWorkspaceFolder}/bashrc\" >> ~/.bashrc",
 	// This syntax is broken for devcontainers v0.224.3
 	// "postAttachCommand": {
 	// 	"git": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 	// 	"bashrc": "echo \"source ${containerWorkspaceFolder}/bashrc\" >> ~/.bashrc"
 	// }
+	"runArgs": [
+		"--privileged"
+	]
 }

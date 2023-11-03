@@ -1,7 +1,21 @@
 cc_binary(
-    name = "hello_world",
+    name = "publisher",
     srcs = [
-        "src/hello_world.cpp",
+        "src/publisher.cpp",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":radar_object",
+    ],
+)
+
+cc_library(
+    name = "radar_object",
+    hdrs = [
+        "include/iceoryx/radar_object.hpp",
+    ],
+    includes = [
+        "include/",
     ],
     visibility = ["//visibility:public"],
 )

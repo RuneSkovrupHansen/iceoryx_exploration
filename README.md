@@ -1,5 +1,6 @@
-# iceoryx
-Experimenting with Iceoryx
+# exploring_iceoryx
+
+Exploring Iceoryx
 
 # Development Container
 
